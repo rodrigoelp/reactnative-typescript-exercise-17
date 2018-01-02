@@ -21,3 +21,4 @@ Be warned, this assumes you have cocoapods installed (and your development envir
 1. Let's create the react native entry point `cd .. && touch index.js`
 1. Modify `index.js` to include `import "./lib/";`
 1. Let's create in `src` a file called `index.tsx` and we will create a component in it to display a hello world message.
+1. At this point, you shouldn't need to do anything to the react native libraries... but trying to compile this code is going to be problematic as you will get the same issue reported [here](https://github.com/facebook/react-native/issues/16039). If you have similar issues with other submodules of react native, apply a similar fix.
