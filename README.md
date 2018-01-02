@@ -17,3 +17,7 @@ Be warned, this assumes you have cocoapods installed (and your development envir
 1. Next, the ios project is configured to use cocoapods, pointing to the dependencies we have just installed. To start this process, let's init cocoapods `pod init`
 1. Then we need to add all the pods for react (check the file added to this repo [here](./ios/Podfile)) * you might nede to include some other libraries to cocoapods based on your needs. For this exercise I am just adding RCTText and RCTImage (settings, network and web socket are kind of a must have).
 1. Run `pod install` to install all the cocoapods specified and create the workspace (xcworkspace) we will need to continue working on the swift side.
+1. Let's modify the `info.plist` file to include a `NSAppTransportSecurity` to allow http calls to `localhost`
+1. Let's create the react native entry point `cd .. && touch index.js`
+1. Modify `index.js` to include `import "./lib/";`
+1. Let's create in `src` a file called `index.tsx` and we will create a component in it to display a hello world message.
