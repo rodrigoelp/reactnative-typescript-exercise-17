@@ -1,5 +1,5 @@
 
-platform :ios  '11.2'
+platform :ios, '11.2'
 # just did it for whatever was the latest available. You should be able to use 9 or something along those lines.
 target 'swiftly' do
   use_frameworks!
