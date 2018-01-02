@@ -1,0 +1,23 @@
+
+platform :ios  '11.2'
+# just did it for whatever was the latest available. You should be able to use 9 or something along those lines.
+target 'swiftly' do
+  use_frameworks!
+
+  pod "yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
+  # Third party deps podspec link
+  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+  pod 'GLog', :podspec => '../node_modules/react-native/third-party-podspecs/GLog.podspec'
+  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+    'Core',
+    'CxxBridge',
+    'DevSupport',
+    'RCTText',
+    'RCTImage',
+    'RCTNetwork',
+    'RCTSettings',
+    'RCTWebSocket', # needed for debugging
+  ]
+end
