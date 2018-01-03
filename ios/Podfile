@@ -4,12 +4,14 @@ platform :ios, '11.2'
 target 'swiftly' do
   use_frameworks!
 
+  # before importing react, you need to add its dependencies.
   pod "yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
   # Third party deps podspec link
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'GLog', :podspec => '../node_modules/react-native/third-party-podspecs/GLog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+  # then let's add react.
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
     'Core',
     'CxxBridge',
