@@ -1,5 +1,5 @@
 import * as React from "react";
-import { AppRegistry, StyleSheet, View, Text } from "react-native";
+import { AppRegistry, StyleSheet, View, Text, Image } from "react-native";
 
 const styles = StyleSheet.create({
     textStyle: {
@@ -22,6 +22,7 @@ class AppShell extends React.PureComponent {
         const greetings = "Hello\n\nIt's me...\n\nHello from the other side!\n\nThis code is running in react native from a swift app!";
         return (
             <View style={{ flex: 1, alignItems: "center", justifyContent: "center", paddingTop: 44, backgroundColor: "#ccccff" }}>
+                <Image source={{uri:"https://raw.githubusercontent.com/rodrigoelp/reactnative-typescript-exercise-17/master/static/hello.gif", height: 121, width: 192}} />
                 <Text style={styles.textStyle}>
                     <Text style={styles.mainGreeting}>
                         Hello...{"\n\n"}
@@ -33,9 +34,9 @@ class AppShell extends React.PureComponent {
 
                         To grow older...{"\n\n"}
 
-                        And mixed..{"\n\n"}
+                        And mix..{"\n\n"}
 
-                        To build some awesome products without people being mean...{"\n\n"}
+                        To build awesome products without people being mean...{"\n\n"}
                     </Text>
                     <Text style={styles.mainGreeting}>
                         Hello from the otherside!!!{"\n\n"}
