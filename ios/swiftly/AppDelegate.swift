@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import React
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // In here, we need to introduce our code that will load the first UIViewController with our react native view.
+        // If you are interested in getting react native to work as a subset of your native application, then this code needs to be moved to the event (outlet or whatever)
+        // that will present the view controller.
+        // So, let's load the RCTRootView so react native can be set up and calls out javascript code.
+        
+        // First, we need to locate which version of the javascript code we are going to be using. By default, when building the application as debug
+        // the code location is going to be: http://localhost:8081/index.bundle?platform=ios
+        // whilst the production or release version is going to be NSBundle(string: "main.bundle")
+        let codeLocation = RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index", fallbackResource: nil)
+        // Next... we need to create the window and the react root view hosting the js engine.
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let rootView = RCTRootView(
+            bundleURL: codeLocation,
+            moduleName: "swiftly", // this name comes from the package.json and AppRegistry.registerComponent("moduleName", ...). It has to match
+            initialProperties: nil,
+            launchOptions: nil)
+        // A view controller to manage the lifecycle of that root view
+        let viewController = UIViewController()
+        viewController.view = rootView
+        self.window?.rootViewController = viewController
+        // and we are done. All we need to do now is to make it visible.
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 
